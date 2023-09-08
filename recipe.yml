@@ -1,20 +1,22 @@
 # This file can only be edited inside the uBlue image's git repository.
 
 # The image will be at "ghcr.io/yourusername/name".
-name: startingpoint
+name: mykinoiteamdintel
 
 # The native container image to build on top of.
 # Warning: Non-uBlue images might not work properly, due to missing components.
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/kinoite-main
 
 # What Fedora version to use. Use an explicit version or `latest`.
 # If you use `latest`, you will be automatically updated to the next major
 # Fedora version, assuming the image you're using as your base container
 # builds with the tag (all uBlue images do this).
-fedora-version: 38
+fedora-version: latest
 
 # This description will be visible in the container metadata.
-description: A starting point for further customization of uBlue images. Make your own! https://universal-blue.org/tinker/make-your-own/
+description: |
+  A starting point for further customization of uBlue images. Make your own! https://universal-blue.org/tinker/make-your-own/
+  I added layers to run KeePass (using mono), decode videos better, manage VMs, manage custom shortcuts.
 
 # These scripts will be executed during the container build.
 # Place scripts in the "scripts/" dir and put the corresponding filenames here.
@@ -49,6 +51,10 @@ rpm:
     # Example (which also demonstrates version number expansion):
     # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
 
+    # https://rpmfusion.org/Howto/OSTree?highlight=%28%5CbCategoryHowto%5Cb%29#Installation
+    - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%FEDORA_VERSION%.noarch.rpm
+    - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%FEDORA_VERSION%.noarch.rpm
+    
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
   # performed via rpm-ostree during the image build, and will be pre-installed
@@ -64,13 +70,24 @@ rpm:
     # Add your own below:
     # Example:
     # - tilix
+    
+    - htop # Better "top"
+    - mozilla-openh264 # Video support on Firefox
+    - intel-media-driver
+    - libvirt # Run VMs
+    - virt-manager # Run VMs
+    - xbindkeys # Shortcuts
+    - mono-complete # KeePass
+    - xdotool # KeePass
+    - xinput # KeePass
+    - podman-compose # Use docker.compose.yml files with podman
 
   # These RPMs will be removed from the system image. This step happens during
   # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
-  remove:
+  #remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
-    - firefox
-    - firefox-langpacks
+    #- firefox
+    #- firefox-langpacks
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
