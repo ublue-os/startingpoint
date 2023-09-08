@@ -14,9 +14,7 @@ base-image: ghcr.io/ublue-os/kinoite-main
 fedora-version: latest
 
 # This description will be visible in the container metadata.
-description: |
-  A starting point for further customization of uBlue images. Make your own! https://universal-blue.org/tinker/make-your-own/
-  I added layers to run KeePass (using mono), decode videos better, manage VMs, manage custom shortcuts.
+description: A starting point for further customization of uBlue images. Make your own! https://universal-blue.org/tinker/make-your-own/. I added layers to run KeePass (using mono), decode videos better, manage VMs, manage custom shortcuts.
 
 # These scripts will be executed during the container build.
 # Place scripts in the "scripts/" dir and put the corresponding filenames here.
