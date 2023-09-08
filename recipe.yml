@@ -71,7 +71,7 @@ rpm:
     
     - htop # Better "top"
     - mozilla-openh264 # Video support on Firefox
-    - intel-media-driver
+    - intel-media-driver # Hardware acceleration with Intel (c.f. https://wiki.archlinux.org/title/Hardware_video_acceleration)
     - libvirt # Run VMs
     - virt-manager # Run VMs
     - xbindkeys # Shortcuts
