@@ -82,10 +82,10 @@ rpm:
 
   # These RPMs will be removed from the system image. This step happens during
   # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
-  #remove:
+  remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
-    #- firefox
-    #- firefox-langpacks
+    - firefox
+    - firefox-langpacks
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
