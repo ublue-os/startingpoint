@@ -80,8 +80,6 @@ rpm:
     - podman-compose # Use docker.compose.yml files with podman
     - usbguard # Protect against unknown USB devices
     - virt-manager # Run VMs
-    - wine-core
-    - wine-mono
     - xbindkeys # Shortcuts
     - xdotool # KeePass
     - xinput # KeePass
