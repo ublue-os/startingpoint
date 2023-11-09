@@ -3,8 +3,8 @@ on:
   # Build *every* branch at 10:20pm UTC every day (1 hr delay after "nvidia" builds),
   # regardless of the branch names. (Not just "live, template and main" branches.)
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
-  schedule:
-    - cron: "20 22 * * *"
+  # schedule:
+    # - cron: "20 22 * * *"
   # Build automatically after pushing commits or tags to the "live", "template"
   # or "main" branches, except when the commit only affects "documentation" text files.
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push
